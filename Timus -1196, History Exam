@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+#define ll  long long
+#define pb push_back
+#define sp " "
+#define maxi 1000000000
+#define forn(i,n) for(long long i=0;i<n;i++)
+using namespace std;
+ 
+int main()
+{ 
+    ll n,m ; cin >> n;
+    map <ll,ll> ase;
+    while(n--)
+    {
+       ll x; cin >> x;
+       ase[x]++;
+    }
+    ll s = 0;
+    cin >> m;
+    while(m--)
+    {
+        ll x; cin >> x;
+        if(ase[x])s++;
+    }
+    
+    cout << s << endl;
+    
+}
