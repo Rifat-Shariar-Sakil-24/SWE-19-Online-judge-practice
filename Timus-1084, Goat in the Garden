@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+#define ll  long long
+#define pb push_back
+#define sp " "
+#define maxi 1000000000
+double  pi =  acos(-1);
+#define forn(i,n) for(long long i=0;i<n;i++)
+using namespace std;
+
+int main()
+{  
+    double n,r; cin >> n >> r;
+    if(r<=n/2)
+    {
+         cout  <<  fixed << setprecision(3) << pi*r*r << endl;
+         return 0;
+    }
+  
+    double x = n/2;
+    double deg =  acos(x/r);
+    double tot_ar = r*r*deg;
+    double ar = 0.5*x*r*sin(deg);
+    ar*=2;
+    double joma = tot_ar-ar;
+    joma*=4;
+    double fin_area = (pi*r*r) - joma;
+    double chk = sqrt((x*x)+(x*x));
+    if(r>=chk)fin_area = n*n;
+    printf("%.3lf\n",fin_area);
+  
+
+}
