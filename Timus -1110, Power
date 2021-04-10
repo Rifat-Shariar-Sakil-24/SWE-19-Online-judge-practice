@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+#define ll  long long
+#define pb push_back
+#define sp " "
+#define maxi 1000000000
+#define forn(i,n) for(long long i=0;i<n;i++)
+using namespace std;
+ 
+int main()
+{ 
+    ll n,m,y; cin >> n >> m >> y;
+    bool ase =0 ;
+    for(ll i=0;i<m;i++)
+    {
+        ll val;
+        if(n==0) val = 1;
+        else val = i;
+        for(ll j=1;j<n;j++) val = ((val%m)*(i%m))%m;
+        if(val%m==y)
+        {
+            ase = 1;
+            cout << i << sp;
+        }
+
+    }
+    if(ase==0) cout << "-1\n";
+
+}
