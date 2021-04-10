@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+#define ll  long long
+#define pb push_back
+#define sp " "
+#define maxi 1000000000
+#define forn(i,n) for(long long i=0;i<n;i++)
+using namespace std;
+
+vector <ll> sq_list;
+vector <ll> vis(60001,INT_MAX);
+
+void square()
+{
+  vis[0]=0;
+  for(ll i=1;i<=244;i++) sq_list.pb(i*i),vis[i*i]=1;
+}
+
+ll solve(ll n)
+{
+  
+   if(vis[n]!=INT_MAX)return vis[n];
+   for(auto i:sq_list)
+   {
+     if(n-i>=0)
+     {
+       vis[i] = min(vis[i],solve(i)); 
+       vis[n-i]= min(vis[n-i],solve(n-i));
+       vis[n] = min(vis[n],vis[i]+vis[n-i]);
+     }
+   }
+   return vis[n];
+  
+}
+ 
+int main()
+{ 
+   
+    square();
+    for(ll i=1;i<=60000;i++)
+    solve(i);
+    ll n; cin >> n;
+    cout << vis[n] << endl;
+
+}
